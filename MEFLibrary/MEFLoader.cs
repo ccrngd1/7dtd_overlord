@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 
-namespace lawsoncs.htg.MEFLibrary
+namespace MEF_Example.MEF
 {
 
     /// <summary>

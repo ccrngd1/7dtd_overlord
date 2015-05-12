@@ -2,6 +2,8 @@
 {
     public  static class MessageText
     {
+        public static string serverStatusMessage =
+            "20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9] (-?)[0-9]*.[0-9]*( )";
         public static string serverStatusDirectorSpawnGeo = @"AIDirector: \S* was spawned and is moving";
         public static string serverStatusDirectorSpawned =@"Spawned \[";
         public static string serverStatusDirectorSpawningWave="Spawning this wave:";
@@ -44,5 +46,31 @@
         public static string esrverStatusFellMessage = @"Entity \[type=(\w)*, name=(\w)*, id=(\d)*\] fell";
 
         public static string listPlayerResponse = "[0-9]+. id=";
+        public static string getTimeReponse = "Day [0-9]+, [0-9]+:[0-9]+";
+        public static string helpResponse = "[a-zA-Z]*( [a-zA-Z]*)? => ([a-zA-Z]*( ?))*";
+        public static string landProectionResponse = "Player \"\\w* \\([0-9]*\\)\" owns [0-9]* keystones";
+        public static string landProectionExtended ="( )*\\(-?(\\d)?(\\d)?(\\d)?, -?(\\d)?(\\d)?(\\d)?, -?(\\d)?(\\d)?(\\d)?\\)";
+        public static string listKnownPlayerResponse = "[0-9]*. \\w*, id=[0-9]*, steamid=[0-9]*, online=[a-zA-Z]*, ip=";
+        public static string renderPlayerMap = "/rpm";
+
+        public static string startupmsgServerVersion = "\\*\\*\\* Server version:";
+        public static string startupmsgAllocStatus = "\\*\\*\\* Allocs server fixes loaded";
+        public static string startupmsgMaxPlayer = "Max players:";
+        public static string startupmsgGameMode = "Game mode:";
+        public static string startupmsgWorld = "World:";
+        public static string startupmsgGameName = "Game name:";
+        public static string startupmsgDifficulty = "Difficulty:";
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

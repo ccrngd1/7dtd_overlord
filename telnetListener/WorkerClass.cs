@@ -67,7 +67,7 @@ namespace lawsoncs.htg.sdtd.AdminServer
 
             int? lastGUID = null;
 
-            var serverStatusMessageRegex = new Regex("20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9] (-?)[0-9]*.[0-9]*( )"); //datetime regex with the '-24xxxx.xxx ' suffix
+            var serverStatusMessageRegex = new Regex(MessageText.serverStatusMessage); //datetime regex with the '-24xxxx.xxx ' suffix
 
             while (!_token.IsCancellationRequested)
             {
@@ -201,24 +201,24 @@ namespace lawsoncs.htg.sdtd.AdminServer
 
                     var listPlayerResponseRegex = new Regex(MessageText.listPlayerResponse);
 
-                    var getTimeResponseRegex = new Regex("Day [0-9]+, [0-9]+:[0-9]+");
+                    var getTimeResponseRegex = new Regex(MessageText.getTimeReponse);
 
-                    var helpResponseRegex = new Regex("[a-zA-Z]*( [a-zA-Z]*)? => ([a-zA-Z]*( ?))*");
+                    var helpResponseRegex = new Regex(MessageText.helpResponse);
 
-                    var landProtectionResponseRegex = new Regex("Player \"\\w* \\([0-9]*\\)\" owns [0-9]* keystones");
-                    var landProtectionExtendedRegex = new Regex("( )*\\(-?(\\d)?(\\d)?(\\d)?, -?(\\d)?(\\d)?(\\d)?, -?(\\d)?(\\d)?(\\d)?\\)");
+                    var landProtectionResponseRegex = new Regex(MessageText.landProectionResponse);
+                    var landProtectionExtendedRegex = new Regex(MessageText.landProectionExtended);
 
-                    var listKnownPlayerResponseRegex = new Regex("[0-9]*. \\w*, id=[0-9]*, steamid=[0-9]*, online=[a-zA-Z]*, ip=");
+                    var listKnownPlayerResponseRegex = new Regex(MessageText.listKnownPlayerResponse);
 
-                    var renderPlayerMap = new Regex("/rpm"); 
+                    var renderPlayerMapRegex = new Regex(MessageText.renderPlayerMap);
 
-                    var startupmsgServerVersino = new Regex("\\*\\*\\* Server version:");
-                    var startupmsgAllocStatus = new Regex("\\*\\*\\* Allocs server fixes loaded");
-                    var startupmsgMaxPlayers = new Regex("Max players:");
-                    var startupmsgGameMode = new Regex("Game mode:");
-                    var startupmsgWorld = new Regex("World:");
-                    var startupmsgGameName = new Regex("Game name:");
-                    var startupmsgDifficulty = new Regex("Difficulty:");
+                    var startupmsgServerVersionRegex = new Regex(MessageText.startupmsgServerVersion);
+                    var startupmsgAllocStatusRegex = new Regex(MessageText.startupmsgAllocStatus);
+                    var startupmsgMaxPlayersRegex = new Regex(MessageText.startupmsgMaxPlayer);
+                    var startupmsgGameModeRegex = new Regex(MessageText.startupmsgGameMode);
+                    var startupmsgWorldRegex = new Regex(MessageText.startupmsgWorld);
+                    var startupmsgGameNameRegex = new Regex(MessageText.startupmsgGameName);
+                    var startupmsgDifficultyRegex = new Regex(MessageText.startupmsgDifficulty);
                     #endregion
 
                     if (String.IsNullOrWhiteSpace(msg)) continue;
@@ -395,7 +395,7 @@ namespace lawsoncs.htg.sdtd.AdminServer
                     }
                     #endregion
                     #region renderPlayerMap result message
-                    else if (renderPlayerMap.IsMatch(msg)) //this will pull player location data for a give date range and map them out in relation to the other players last known position
+                    else if (renderPlayerMapRegex.IsMatch(msg)) //this will pull player location data for a give date range and map them out in relation to the other players last known position
                     {
                         var splitRpm = msg.Split(' ');
                         

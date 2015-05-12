@@ -56,6 +56,7 @@
       <HintPath>lib\MySql.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
@@ -77,10 +78,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="commands\ICommand.cs" />
+    <Compile Include="commands\ServerStatusCommands.cs" />
     <Compile Include="data\LoggingDA.cs" />
     <Compile Include="data\MessageText.cs" />
     <Compile Include="data\PlayerDA.cs" />
     <Compile Include="data\ServerDA.cs" />
+    <Compile Include="MEFLoader.cs" />
     <Compile Include="objects\player.cs" />
     <Compile Include="objects\refGameItems.cs" />
     <Compile Include="Program.cs" />

@@ -1,30 +1,35 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace lawsoncs.htg.sdtd.AdminServer.commands
 {
     interface ICommand
     {
-        string Execute(string msg);
+        CommandResult Execute(string msg);
     }
 
-    public sealed class CommandBase : ICommand
+    public struct CommandResult
+    {
+        public bool NeedsContinuation;
+        public bool Success;
+    }
+
+    public abstract class CommandBase : ICommand
     {
         private string msgRegex;
 
-        private CommandBase() { }
+        protected CommandBase() { }
 
-        public CommandBase(string msg)
+        protected CommandBase(string msg)
         {
             msgRegex = msg;
         }
 
-        public string Execute(string msg)
+        public CommandResult Execute(string msg)
         {
             var r = new Regex(msgRegex);
             var split = r.Split(msg);
 
-            return split.Length > 1 ? split[1] : null;
+            return new CommandResult {NeedsContinuation = false, Success = false};
         }
     }
 }

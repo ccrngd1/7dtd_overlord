@@ -5,12 +5,14 @@ using System.Data;
 using System.Drawing;
 using MySql.Data.MySqlClient;
 using lawsoncs.htg.sdtd.AdminServer.objects;
+using lawsoncs.htg.sdtd.data;
+using lawsoncs.htg.sdtd.data.objects;
 
-namespace lawsoncs.htg.sdtd.AdminServer.data
+namespace lawsoncs.htg.sdtd.data
 {
-    internal static class PlayerDA
+    public static class PlayerDA
     {
-        internal static void SavePlayer(Player p)
+        public static void SavePlayer(Player p)
         {
             using (var conn = new MySqlConnection(SettingsSingleton.Instance.ConnectionString))
             {
@@ -136,15 +138,15 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
             }
         }
 
-        internal static void SaveAlias()
+        public static void SaveAlias()
         {
         }
 
-        internal static void SaveCurrentBackpack()
+        public static void SaveCurrentBackpack()
         {
         }
 
-        internal static void SaveCurrentToolbar()
+        public static void SaveCurrentToolbar()
         {
         }
 
@@ -154,7 +156,7 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
         /// <param name="playerName">full player name or the start of the player name to be found</param>
         /// <param name="isPartialName">mark whether the player name should be treated as a partial name</param>
         /// <returns>a full player object</returns>
-        internal static Player GetPlayer(string playerName, bool isPartialName=true)
+        public static Player GetPlayer(string playerName, bool isPartialName=true)
         {
             var retVal = new Player();
 
@@ -209,7 +211,7 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
         /// </summary>
         /// <param name="GUID">the GUID key to pull the player back</param>
         /// <returns>a full player object</returns>
-        internal static Player GetPlayer(int GUID)
+        public static Player GetPlayer(int GUID)
         {
             var retVal = new Player();
 
@@ -291,7 +293,7 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
             return retVal;
         }
 
-        internal static IEnumerable<string> GetAlias(int guid)
+        public static IEnumerable<string> GetAlias(int guid)
         {
             var retVal = new List<string>();
 
@@ -340,7 +342,7 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
             return retVal;
         }
 
-        internal static void InsertAlias(int guid, string name)
+        public static void InsertAlias(int guid, string name)
         { 
             using (var conn = new MySqlConnection(SettingsSingleton.Instance.ConnectionString))
             {
@@ -392,7 +394,7 @@ namespace lawsoncs.htg.sdtd.AdminServer.data
         /// <param name="p">the player to get location history on</param>
         /// <param name="oldestTimestamp">the oldest location entry to use</param>
         /// <returns></returns>
-        internal static bool GetLocationHistory(int guid, DateTime? oldestTimestamp, ref Queue<Point3D> location)
+        public static bool GetLocationHistory(int guid, DateTime? oldestTimestamp, ref Queue<Point3D> location)
         {
             return true;
         }

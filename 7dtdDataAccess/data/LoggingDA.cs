@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Data;
+using lawsoncs.htg.sdtd.data.objects;
 using MySql.Data.MySqlClient;
 
-namespace lawsoncs.htg.sdtd.AdminServer.data
+namespace lawsoncs.htg.sdtd.data
 {
-    internal static class LoggingDA
+    public static class LoggingDA
     {
         //`sp_SaveLogMsg` (in logTimeStamp datetime, in messageTypeId int, in message varchar(255),  in serverId int,
         //                            in playerAsscGUID int, in adminAccsGUID int)
-        internal static void CommitLogMessage(string message, DateTime timestamp, MessageTyes mtype, int? playerGUID, int? adminGUID)
+        public static void CommitLogMessage(string message, DateTime timestamp, MessageTyes mtype, int? playerGUID, int? adminGUID)
         {
             using (var conn = new MySqlConnection(SettingsSingleton.Instance.ConnectionString))
             {

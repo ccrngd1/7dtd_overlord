@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Linq; 
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 
-namespace MEF_Example.MEF
+namespace lawsoncs.MEFLibrary.MEF
 {
 
     /// <summary>

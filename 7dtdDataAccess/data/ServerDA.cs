@@ -7,8 +7,9 @@ using System.Linq;
 using System.Net;
 using MySql.Data.MySqlClient;
 using System.Net.FtpClient;
+using lawsoncs.htg.sdtd.data;
 
-namespace lawsoncs.htg.sdtd.AdminServer.data
+namespace lawsoncs.htg.sdtd.data
 {
     public static class ServerDA
     {

@@ -1,4 +1,4 @@
-﻿namespace lawsoncs.htg.sdtd.AdminServer.data
+﻿namespace lawsoncs.htg.sdtd.ServerCommands
 {
     public  static class MessageText
     {
@@ -10,13 +10,8 @@
         public static string serverStatusDirectorSpawning = "Spawning";
         public static string serverStatusPlayerGreaterStack = @"Player with ID \d* has stack for";
         public static string serverStatusPlayerOnlineMessage = @"Player set to online: ";
-
-        public static string serverStatusPlayerConnectedMessage =
-            @"Player connected, clientid=\d*, entityid=\d*, name=.*, ip=\d+.\d+.\d+.\d+";
-
-        public static string serverStatusAddingEntityMessage =
-            @"Adding observed entity: \d*, \((-?)\d.\d, (-?)\d.\d, (-?)\d.\d\), \d*";
-
+        public static string serverStatusPlayerConnectedMessage =@"Player connected, clientid=\d*, entityid=\d*, name=.*, ip=\d+.\d+.\d+.\d+";
+        public static string serverStatusAddingEntityMessage =@"Adding observed entity: \d*, \((-?)\d.\d, (-?)\d.\d, (-?)\d.\d\), \d*";
         public static string serverStatusCreatedPlayerMessage = @"Created player with id=";
         public static string serverStatusRequestSpawnMessage = @"RequestToSpawnPlayer:";
         public static string serverStatusSayMessage = @"GMSG: ";

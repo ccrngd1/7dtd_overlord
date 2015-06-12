@@ -4,9 +4,10 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 using System.Text;
-using lawsoncs.htg.sdtd.AdminServer.data;
+using lawsoncs.htg.sdtd.AdminServer.objects;
+using lawsoncs.htg.sdtd.data;
 
-namespace lawsoncs.htg.sdtd.AdminServer.objects
+namespace lawsoncs.htg.sdtd.data.objects
 {
     public class Player
     {

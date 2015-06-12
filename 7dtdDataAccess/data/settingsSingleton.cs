@@ -3,10 +3,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using System.Net;
-using System.IO;
-using System.Web;
+using System.IO; 
 
-namespace lawsoncs.htg.sdtd.AdminServer
+namespace lawsoncs.htg.sdtd.data
 {
     using System;
     using System.Configuration; 

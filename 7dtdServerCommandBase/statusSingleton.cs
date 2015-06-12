@@ -5,14 +5,24 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using lawsoncs.htg.sdtd.AdminServer.data;
+using lawsoncs.htg.sdtd.data;
 using lawsoncs.htg.sdtd.AdminServer.objects;
+using lawsoncs.htg.sdtd.data.objects;
 
-namespace lawsoncs.htg.sdtd.AdminServer
+namespace lawsoncs.htg.sdtd.ServerCommandBase
 {
+    public struct LastCommandInformation
+    {
+        public Player LastAccessedPlayer;
+        public int? LastLoggedGuid;
+        public DateTime? LastCommandDatetime;
+        public Point3D? LastCoordinates;
+    }
+
     public class ServerStatusSingleton
     {
         public ConcurrentQueue<string> PendingCommandsToRun;
+        public LastCommandInformation LastExecuteCommandInformation;
 
         private static ServerStatusSingleton _serverStatusSingleton;
         private static readonly object LockCtor = new object();
@@ -203,7 +213,7 @@ namespace lawsoncs.htg.sdtd.AdminServer
             return new Tuple<Point3D, Point3D>(min, max);
         }
 
-        internal Player FindPlayer(string p)
+        public Player FindPlayer(string p)
         {
             if (p.Length < 5)
             {
@@ -224,53 +234,4 @@ namespace lawsoncs.htg.sdtd.AdminServer
         }
     }
 
-    public class GameTime
-    {
-        public int Day;
-        public int Hour;
-        public int Minute;
-
-        public GameTime(int day, string time)
-        {
-            Day = day;
-            var t = time.Split(':');
-            Hour = Convert.ToInt32(t[0]);
-            Minute = Convert.ToInt32(t[1]);
-        }
-
-        public static bool operator <(GameTime a, GameTime b)
-        {
-            if (a.Day < b.Day) return true;
-
-            if (a.Day == b.Day)
-            {
-                if (a.Hour < b.Hour) return true;
-
-                if (a.Hour == b.Hour)
-                {
-                    if (a.Minute < b.Minute) return true;
-                }
-            }
-
-            return false;
-        }
-
-        public static bool operator >(GameTime a, GameTime b)
-        {
-            if (a.Day > b.Day) return true;
-
-            if (a.Day == b.Day)
-            {
-                if (a.Hour > b.Hour) return true;
-
-                if (a.Hour == b.Hour)
-                {
-                    if (a.Minute > b.Minute) return true;
-                }
-            }
-
-            return false;
-        }
-
-    }
 }

@@ -77,15 +77,6 @@
     <Compile Include="client.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="commands\ICommand.cs" />
-    <Compile Include="commands\ServerStatusCommands.cs" />
-    <Compile Include="data\LoggingDA.cs" />
-    <Compile Include="data\MessageText.cs" />
-    <Compile Include="data\PlayerDA.cs" />
-    <Compile Include="data\ServerDA.cs" />
-    <Compile Include="MEFLoader.cs" />
-    <Compile Include="objects\player.cs" />
-    <Compile Include="objects\refGameItems.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="serviceBase\CommandArguments.cs" />
@@ -97,9 +88,7 @@
     <Compile Include="serviceBase\ServiceBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="statusSingleton.cs" />
     <Compile Include="WorkerClass.cs" />
-    <Compile Include="settingsSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -107,7 +96,25 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\7dtdDataAccess\7dtdDataAccess.csproj">
+      <Project>{21f06fee-5ab4-4b57-afe4-b6f6098c1ff0}</Project>
+      <Name>7dtdDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\7dtdServerCommandBase\7dtdServerCommandBase.csproj">
+      <Project>{e28aad14-6c35-4373-adf5-7d6f2cc8ae46}</Project>
+      <Name>7dtdServerCommandBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MEFLibrary\MEFLibrary.csproj">
+      <Project>{5ef2c773-a21c-44ac-8897-daecf834551f}</Project>
+      <Name>MEFLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "Commands"
+copy "$(TargetDir)..\..\..\7dtdServerCommands\bin\Debug\7dtdServerCommands.dll" "$(TargetDir)Commands\7dtdServerCommands.dll"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
